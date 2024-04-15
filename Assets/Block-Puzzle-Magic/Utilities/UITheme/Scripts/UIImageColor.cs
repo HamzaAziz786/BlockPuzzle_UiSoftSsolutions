@@ -12,7 +12,7 @@ public class UIImageColor : MonoBehaviour
 
 	void Awake()
 	{
-		//currentImage = GetComponent<Image> ();
+		currentImage = GetComponent<Image> ();
 	}
 
 	void OnEnable()
