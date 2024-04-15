@@ -12,18 +12,18 @@ public class UIImageColor : MonoBehaviour
 
 	void Awake()
 	{
-		currentImage = GetComponent<Image> ();
+		//currentImage = GetComponent<Image> ();
 	}
 
 	void OnEnable()
 	{
-		UIThemeManager.OnUIThemeChangedEvent += OnUIThemeChangedEvent;	
-		Invoke ("UpdateImageUI", 0.1F);
+		//UIThemeManager.OnUIThemeChangedEvent += OnUIThemeChangedEvent;	
+		//Invoke ("UpdateImageUI", 0.1F);
 	}
 
 	void OnDisable()
 	{
-		UIThemeManager.OnUIThemeChangedEvent -= OnUIThemeChangedEvent;	
+		//UIThemeManager.OnUIThemeChangedEvent -= OnUIThemeChangedEvent;	
 	}
 
 	void OnUIThemeChangedEvent (bool isDarkThemeEnabled)
