@@ -99,7 +99,8 @@ public class StackManager : Singleton<StackManager>
 			}
 		}
 	}
-
+	
+    
 	void ProcessBackButton(string currentScreen)
 	{
 		Debug.Log(currentScreen);
