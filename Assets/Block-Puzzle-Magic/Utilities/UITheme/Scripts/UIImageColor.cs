@@ -37,7 +37,7 @@ public class UIImageColor : MonoBehaviour
 		{
 			UIThemeTag tag = UIThemeManager.Instance.currentUITheme.UIStyle.Find (o => o.tagName == UIColorTag);
 			if (tag != null) {
-				currentImage.color = tag.UIColor;
+				//currentImage.color = tag.UIColor;
 			}
 		}
 	}
