@@ -61,8 +61,15 @@ public class SelectMode : MonoBehaviour
 
 	public void OnClassicButtonPressed()
 	{
+		AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
+		StartCoroutine(nameof(classicModeData));
+	}
+
+	IEnumerator classicModeData()
+    {
+		yield return new WaitForSeconds(.5f);
 		if (InputManager.Instance.canInput ()) {
-			AudioManager.Instance.PlayButtonClickSound ();
+			AudioManager.Instance.PlayButtonClickSound();
 			GameController.gameMode = GameMode.CLASSIC;
 			StackManager.Instance.ActivateGamePlay();
 			StackManager.Instance.mainMenu.Deactivate();
@@ -72,27 +79,62 @@ public class SelectMode : MonoBehaviour
 
 	public void OnTimedButtonPressed()
 	{
-		if (InputManager.Instance.canInput ()) {
-			AudioManager.Instance.PlayButtonClickSound ();
-			GameController.gameMode = GameMode.TIMED;
-			StackManager.Instance.ActivateGamePlay();
-			StackManager.Instance.mainMenu.Deactivate();
-			gameObject.Deactivate();
-		}
-	}
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
+        StartCoroutine(nameof(OnTimedButtonPressedStart));
+    }
 
-	public void OnBlastButtonPressed()
+    IEnumerator OnTimedButtonPressedStart()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (InputManager.Instance.canInput())
+        {
+            AudioManager.Instance.PlayButtonClickSound();
+            GameController.gameMode = GameMode.TIMED;
+            StackManager.Instance.ActivateGamePlay();
+            StackManager.Instance.mainMenu.Deactivate();
+            gameObject.Deactivate();
+        }
+    }
+
+    public void OnBlastButtonPressed()
 	{
-		if (InputManager.Instance.canInput ()) {
-			AudioManager.Instance.PlayButtonClickSound ();
-			GameController.gameMode = GameMode.BLAST;
-			StackManager.Instance.ActivateGamePlay();
-			StackManager.Instance.mainMenu.Deactivate();
-			gameObject.Deactivate();
-		}
-	}
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
+        StartCoroutine(nameof(OnBlastButtonPressedstart));
+    }
 
-	public void OnAdvanceButtonPressed()
+    IEnumerator OnBlastButtonPressedstart()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (InputManager.Instance.canInput())
+        {
+            AudioManager.Instance.PlayButtonClickSound();
+            GameController.gameMode = GameMode.BLAST;
+            StackManager.Instance.ActivateGamePlay();
+            StackManager.Instance.mainMenu.Deactivate();
+            gameObject.Deactivate();
+        }
+    }
+
+	public void OnChallengeButtonPressed()
+	{
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
+        StartCoroutine(nameof(OnChallengeButtonPressedstart));
+    }
+
+    IEnumerator OnChallengeButtonPressedstart()
+    {
+        yield return new WaitForSeconds(.5f);
+        if (InputManager.Instance.canInput())
+        {
+            AudioManager.Instance.PlayButtonClickSound();
+            GameController.gameMode = GameMode.CHALLENGE;
+            StackManager.Instance.ActivateGamePlay();
+            StackManager.Instance.mainMenu.Deactivate();
+            gameObject.Deactivate();
+        }
+    }
+
+    public void OnAdvanceButtonPressed()
 	{
 		if (InputManager.Instance.canInput ()) {
 			AudioManager.Instance.PlayButtonClickSound ();
@@ -103,18 +145,8 @@ public class SelectMode : MonoBehaviour
 		}
 	}
 
-	public void OnChallengeButtonPressed()
-	{
-		if (InputManager.Instance.canInput ()) {
-			AudioManager.Instance.PlayButtonClickSound ();
-			GameController.gameMode = GameMode.CHALLENGE;
-			StackManager.Instance.ActivateGamePlay();
-			StackManager.Instance.mainMenu.Deactivate();
-			gameObject.Deactivate();
-		}
-	}
 
-	public void OnCloseButtonPressed()
+    public void OnCloseButtonPressed()
 	{
 		if (InputManager.Instance.canInput ()) {
 			AudioManager.Instance.PlayButtonClickSound ();
